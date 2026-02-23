@@ -12,24 +12,17 @@ def app(environ, start_response):
     path = environ.get("PATH_INFO", "/")
 
     students = [
-        {"ID": 1, "Name": "Alice Johnson", "Course": "Computer Science"},
-        {"ID": 2, "Name": "Brian Smith", "Course": "Information Technology"},
-        {"ID": 3, "Name": "Catherine Lee", "Course": "Business Administration"},
-        {"ID": 4, "Name": "David Brown", "Course": "Mechanical Engineering"},
-        {"ID": 5, "Name": "Emma Wilson", "Course": "Psychology"},
-        {"ID": 6, "Name": "Frank Garcia", "Course": "Electrical Engineering"},
-        {"ID": 7, "Name": "Grace Martinez", "Course": "Marketing"},
-        {"ID": 8, "Name": "Henry Anderson", "Course": "Civil Engineering"},
-        {"ID": 9, "Name": "Isabella Thomas", "Course": "Biology"},
-        {"ID": 10, "Name": "James Taylor", "Course": "Accounting"}
+        {"ID": 1, "Name": "Mike Catarig", "Course": "Information Technology"},
+        {"ID": 2, "Name": "Justin Dollizon", "Course": "Information Technology"},
+        {"ID": 3, "Name": "Angel Mae G. Morado", "Course": "Information Technology"},
+        {"ID": 4, "Name": "Paul Abao", "Course": "Information Technology"},
     ]
 
     if path.endswith("/hello"):
         title = "Hello Page"
         message = "Rendered using Jinja2"
     else:
-        title = "Home"
-        message = "Plain Python + Gunicorn + Nginx"
+        title = "Student List"
 
     template = env.get_template("home.html")
     html = template.render(title=title, message=message, students=students)
