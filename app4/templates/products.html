@@ -1,19 +1,22 @@
 {% extends "base.html" %}
-
 {% block content %}
-<h2>Products</h2>
 
-<ul>
-  {% for product in product_items %}
-    <li>
-      <strong>{{ product.name }}</strong><br>
-      Brand: {{ product.brand }}<br>
-      Price: ${{ product.price }}<br>
-      In Stock: {{ product.stock }}
-    </li>
-    <hr>
-  {% endfor %}
-</ul>
-
-<p>Use the navigation above to login or go to the dashboard.</p>
+<div class="container mt-5">
+    <h2 class="d-flex justify-content-center align-items-center mb-4 text-center">Our Products</h2>
+    <div class="row">
+        {% for item in product_items %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm hover-scale">
+                <img src="{{ item.image_url }}" class="card-img-top" alt="{{ item.name }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <p class="text-muted">{{ item.brand }}</p>
+                    <p class="price fw-bold">${{ item.price }}</p>
+                    <p>Stock: {{ item.stock }}</p>
+                    <button class="btn btn-primary w-100 hover-grow">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+</div>
 {% endblock %}

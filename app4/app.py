@@ -27,6 +27,7 @@ url_map = Map([
     Rule("/products", endpoint="products"),
     Rule("/services", endpoint="services"),
     Rule("/contactus", endpoint="contactus"),
+    Rule("/register", endpoint="register", methods=["GET", "POST"]),
 ])
 
 # ------------------------
@@ -35,7 +36,20 @@ url_map = Map([
 def home(request):
 
     return render("home.html")
+def register(request):
+    error = None
+    success = None
 
+    if request.method == "POST":
+        email = request.form.get("email").strip()
+        password = request.form.get("password").strip()
+
+        if not email:
+            error = "All fields are required."
+        else: 
+            success = f"Welcome, {email}! You are registered."
+    
+    return render("register.html", error=error, success=success)
 # ------------------------
 def products(request):
 

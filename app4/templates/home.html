@@ -1,7 +1,36 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-<h1>Welcome to the Home Page</h1>
-<p>This is the main landing page of the application.</p>
+<!-- Hero Section -->
+<section class="hero text-center d-flex flex-column justify-content-center align-items-center mt-5 py-5" 
+         style="background: url('{{ base_url }}/static/images/tech-hero.jpg') center/cover no-repeat; color: white;">
+    <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Premium Tech Products</h1>
+    <p class="lead animate__animated animate__fadeInUp mt-2">Powering your work, gaming, and creativity</p>
+    <a href="{{ base_url }}/products" class="btn btn-light btn-lg mt-3 shadow hover-grow">Shop Now</a>
+</section>
+
+<!-- Features Section -->
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="feature-card p-4 shadow-sm hover-grow">
+                <h5>🚚 Fast Delivery</h5>
+                <p>Nationwide shipping available</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-card p-4 shadow-sm hover-grow">
+                <h5>💳 Secure Payment</h5>
+                <p>Safe and encrypted transactions</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-card p-4 shadow-sm hover-grow">
+                <h5>⭐ Quality Products</h5>
+                <p>Trusted brands only</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
